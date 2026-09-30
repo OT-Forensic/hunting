@@ -1,15 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کارگاه آموزشی شکار تهدید صنعتی </title>
+  <title>کارگاه آموزشی شکار تهدید صنعتی</title>
 
   <style>
     @font-face {
        font-family: "vazirmatn";
        src: url("Vazirmatn-Regular.woff2") format("woff2");
     }
+
     body {
       font-family: Vazirmatn, sans-serif;
       background: #f0f6ff;
@@ -21,6 +22,7 @@
       align-items: flex-start;
       min-height: 100vh;
     }
+
     .container {
       max-width: 750px;
       width: 90%;
@@ -30,20 +32,24 @@
       border-radius: 1.5rem;
       box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
     }
+
     header {
       text-align: center;
       margin-bottom: 1rem;
     }
+
     header h1 {
       font-size: 1.8rem;
       margin: 0;
       color: #1d4ed8;
     }
+
     header p {
       font-size: 1rem;
       margin-top: 0.5rem;
       color: #2563eb;
     }
+
     .header-image {
       width: 100%;
       max-height: 250px;
@@ -51,6 +57,7 @@
       border-radius: 1rem;
       margin: 1rem 0;
     }
+
     h2 {
       margin-top: 2rem;
       font-size: 1.3rem;
@@ -58,12 +65,14 @@
       border-right: 4px solid #3b82f6;
       padding-right: 0.5rem;
     }
+
     details {
       background: #eff6ff;
       border-radius: 1rem;
       margin-bottom: 1rem;
       padding: 0.5rem 1rem;
     }
+
     summary {
       cursor: pointer;
       font-weight: bold;
@@ -71,19 +80,34 @@
       font-size: 1.1rem;
       margin: 0.5rem 0;
     }
+
     details[open] {
       background: #dbeafe;
     }
+
     details p {
       text-align: justify;
       line-height: 1.8;
     }
+
+    .section-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .section h2 {
+      margin-top: 2rem;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
+
     .card {
       display: flex;
       flex-direction: column;
@@ -98,16 +122,26 @@
       color: #1d4ed8;
       font-weight: 600;
       transition: transform 0.2s ease, background 0.2s ease;
+      min-height: 100px;
     }
+
     .card:hover {
       transform: translateY(-4px);
       background: #dbeafe;
     }
+
     .card img {
       width: 50px;
       height: 50px;
       margin-bottom: 0.5rem;
     }
+
+    .download-icon {
+      font-size: 50px;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
     .channel-link {
       display: flex;
       justify-content: center;
@@ -123,56 +157,106 @@
       width: fit-content;
       transition: background 0.2s ease;
     }
+
     .channel-link:hover {
       background: #1e40af;
     }
+
     .channel-link img {
       width: 24px;
       height: 24px;
     }
+
+    @media (max-width: 600px) {
+      .section-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
+
     <header>
       <h1>کارگاه آموزشی شکار تهدید صنعتی</h1>
+
       <!-- <p><br>بیست و دومین کنفرانس بین‌المللی انجمن رمز ایران</p> -->
-      <!-- <img class="header-image" src="https://s2data.com/wp-content/uploads/2022/07/AdobeStock_480199782-1536x768.jpeg.webp" alt="OT Forensics"> -->
-      <img class="header-image" src="header.jpeg" alt="OT Forensics"> 
+
+      <img class="header-image" src="header.jpeg" alt="OT Forensics">
     </header>
- 
+
     <details>
       <summary>سرفصل مطالب کارگاه</summary>
       <ul>
-        <li>معرفی مفهوم OSINT و جایگاه آن در امنیت سایبری صنعتی </li>
-        <li>بررسی چارچوب ICS MITRE ATT&CK  </li>
-        <li>مطالعه موردی: نگاشت یک نمونه حمله سایبری صنعتی به چارچوب ICS MITRE ATT&CK </li>
-        <li>چالش عملی: شناسایی و تحلیل یک حمله سایبری در شبکه صنعتی از روی شواهد ترافیک شبکه </li>
+        <li>معرفی مفهوم OSINT و جایگاه آن در امنیت سایبری صنعتی</li>
+        <li>بررسی چارچوب ICS MITRE ATT&CK</li>
+        <li>مطالعه موردی: نگاشت یک نمونه حمله سایبری صنعتی به چارچوب ICS MITRE ATT&CK</li>
+        <li>چالش عملی: شناسایی و تحلیل یک حمله سایبری در شبکه صنعتی از روی شواهد ترافیک شبکه</li>
       </ul>
     </details>
- 
+
     <details>
       <summary>چکیده کارگاه</summary>
       <p>
-        با گسترش تهدیدات سایبری علیه سامانه‌های کنترل صنعتی، شناسایی و تحلیل رفتار مهاجمان پیش از ایجاد اختلال در فرآیند صنعتی اهمیت ویژه دارد. در این کارگاه ابتدا مفهوم اطلاعات منبع باز (OSINT) و کاربرد آن در شناسایی تهدیدات سایبری صنعتی معرفی می‌شود. سپس چارچوب MITRE ATT&CK for ICS به عنوان یکی از مراجع مهم برای شناخت تاکتیک و تکنیک‌های مورد استفاده مهاجمان در محیط صنعتی بررسی خواهد شد. در ادامه، با استفاده از یک مطالعه موردی واقعی، رفتار مهاجم به این چارچوب نگاشت خواهد شد. در بخش عملی کارگاه، شرکت‌کنندگان با استفاده از شواهد ترافیک شبکه و ابزارهایی نظیر Wireshark یک سناریو در شبکه صنعتی را بررسی خواهند کرد. هدف نهایی، ایجاد درک عملی از فرآیند شکار تهدید صنعتی است. 
+        با گسترش تهدیدات سایبری علیه سامانه‌های کنترل صنعتی، شناسایی و تحلیل رفتار مهاجمان
+        پیش از ایجاد اختلال در فرآیند صنعتی اهمیت ویژه دارد. در این کارگاه ابتدا مفهوم
+        اطلاعات منبع باز (OSINT) و کاربرد آن در شناسایی تهدیدات سایبری صنعتی معرفی می‌شود.
+        سپس چارچوب MITRE ATT&CK for ICS به عنوان یکی از مراجع مهم برای شناخت تاکتیک و
+        تکنیک‌های مورد استفاده مهاجمان در محیط صنعتی بررسی خواهد شد. در ادامه، با استفاده
+        از یک مطالعه موردی واقعی، رفتار مهاجم به این چارچوب نگاشت خواهد شد. در بخش عملی
+        کارگاه، شرکت‌کنندگان با استفاده از شواهد ترافیک شبکه و ابزارهایی نظیر Wireshark
+        یک سناریو در شبکه صنعتی را بررسی خواهند کرد. هدف نهایی، ایجاد درک عملی از فرآیند
+        شکار تهدید صنعتی است.
       </p>
     </details>
- 
-    <a class="channel-link" href="https://ble.ir/join/CyJAXGzrYm" target="_blank">
+
+    <a class="channel-link"
+       href="https://ble.ir/join/CyJAXGzrYm"
+       target="_blank"
+       rel="noopener noreferrer">
       <img src="https://bale.ai/uploads/bale.png?w=1920&q=75" alt="بله">
       ورود به کانال بله
     </a>
- 
-    <h2>ابزارها</h2>
-    <div class="grid">
-      <a class="card" href="https://www.wireshark.org/download.html" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Wireshark">
-        Wireshark
-      </a>
-    
+
+    <!-- ابزارها و فایل‌های کارگاه -->
+    <div class="section-row">
+
+      <div class="section">
+        <h2>ابزارها</h2>
+
+        <div class="grid">
+          <a class="card"
+             href="https://www.wireshark.org/download.html"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg"
+              alt="Wireshark">
+
+            Wireshark
+          </a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>فایل‌های کارگاه</h2>
+
+        <div class="grid">
+          <a class="card"
+             href="ICS_FuelStation.pcapng"
+             download="ICS_FuelStation.pcapng">
+
+            <div class="download-icon">📥</div>
+
+            دانلود فایل PCAP
+          </a>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </body>
-
 </html>
-
-
