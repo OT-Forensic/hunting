@@ -1,262 +1,1331 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کارگاه آموزشی شکار تهدید صنعتی</title>
+
+  <title>کارگاه آموزشی شکار تهدید در شبکه‌های صنعتی</title>
 
   <style>
+
     @font-face {
-       font-family: "vazirmatn";
-       src: url("Vazirmatn-Regular.woff2") format("woff2");
+      font-family: "Vazirmatn";
+      src: url("Vazirmatn-Regular.woff2") format("woff2");
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Vazirmatn, sans-serif;
-      background: #f0f6ff;
-      color: #1e3a8a;
       margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      font-family: "Vazirmatn", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(14, 165, 233, 0.14),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          rgba(16, 185, 129, 0.08),
+          transparent 30%
+        ),
+        #07111f;
+
+      color: #dbeafe;
       min-height: 100vh;
     }
 
+
+    /* =========================
+       CONTAINER
+    ========================== */
+
     .container {
-      max-width: 750px;
-      width: 90%;
-      background: white;
-      margin-top: 2rem;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+      width: min(1150px, 94%);
+      margin: 30px auto 50px;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 1rem;
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      min-height: 440px;
+
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      border: 1px solid rgba(148, 163, 184, 0.18);
+
+      background: #0b1728;
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
     }
 
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-      color: #1d4ed8;
-    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
 
-    header p {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      color: #2563eb;
-    }
-
-    .header-image {
       width: 100%;
-      max-height: 250px;
+      height: 100%;
+
       object-fit: cover;
-      border-radius: 1rem;
-      margin: 1rem 0;
+
+      opacity: 0.70;
     }
 
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.3rem;
-      color: #1d4ed8;
-      border-right: 4px solid #3b82f6;
-      padding-right: 0.5rem;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(3, 10, 20, 0.98) 0%,
+          rgba(3, 10, 20, 0.82) 42%,
+          rgba(3, 10, 20, 0.20) 100%
+        );
     }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+
+      padding: 48px;
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px 15px;
+
+      border-radius: 50px;
+
+      background: rgba(14, 165, 233, 0.13);
+
+      border: 1px solid rgba(56, 189, 248, 0.35);
+
+      color: #7dd3fc;
+
+      font-size: 0.85rem;
+
+      backdrop-filter: blur(10px);
+
+      margin-bottom: 17px;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #22c55e;
+
+      box-shadow:
+        0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero h1 {
+      margin: 0;
+
+      color: white;
+
+      font-size: clamp(2rem, 5vw, 3.4rem);
+
+      line-height: 1.45;
+
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 780px;
+
+      margin-top: 16px;
+
+      color: #c7e7f7;
+
+      font-size: 1.05rem;
+
+      line-height: 2;
+    }
+
+    .hero-tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 24px;
+    }
+
+    .hero-tag {
+      padding: 7px 13px;
+
+      border-radius: 8px;
+
+      background: rgba(15, 23, 42, 0.78);
+
+      border: 1px solid rgba(148, 163, 184, 0.18);
+
+      color: #cbd5e1;
+
+      font-size: 0.78rem;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .navigation {
+      position: sticky;
+
+      top: 12px;
+
+      z-index: 50;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+
+      margin: 18px 0;
+
+      padding: 8px;
+
+      background: rgba(15, 23, 42, 0.84);
+
+      border: 1px solid rgba(148, 163, 184, 0.14);
+
+      border-radius: 17px;
+
+      backdrop-filter: blur(16px);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+    }
+
+    .navigation a {
+      color: #cbd5e1;
+
+      text-decoration: none;
+
+      padding: 9px 18px;
+
+      border-radius: 10px;
+
+      font-size: 0.86rem;
+
+      transition: 0.25s;
+    }
+
+    .navigation a:hover {
+      color: #7dd3fc;
+
+      background:
+        rgba(14, 165, 233, 0.12);
+    }
+
+
+    /* =========================
+       STATISTICS
+    ========================== */
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 13px;
+
+      margin-bottom: 22px;
+    }
+
+    .stat {
+      padding: 20px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(15, 23, 42, 0.95),
+          rgba(11, 24, 40, 0.90)
+        );
+
+      border:
+        1px solid rgba(148, 163, 184, 0.13);
+    }
+
+    .stat-value {
+      display: block;
+
+      color: #38bdf8;
+
+      font-size: 1.15rem;
+
+      font-weight: 700;
+
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      color: #94a3b8;
+
+      font-size: 0.78rem;
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    .section {
+      padding: 29px;
+
+      margin-bottom: 22px;
+
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(15, 23, 42, 0.94),
+          rgba(10, 21, 36, 0.94)
+        );
+
+      border:
+        1px solid rgba(148, 163, 184, 0.13);
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .section-header {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 22px;
+    }
+
+    .section-line {
+      width: 5px;
+
+      height: 30px;
+
+      border-radius: 10px;
+
+      background: #0ea5e9;
+
+      box-shadow:
+        0 0 15px rgba(14, 165, 233, 0.55);
+    }
+
+    .section-title {
+      margin: 0;
+
+      color: white;
+
+      font-size: 1.35rem;
+    }
+
+
+    /* =========================
+       DETAILS
+    ========================== */
 
     details {
-      background: #eff6ff;
-      border-radius: 1rem;
-      margin-bottom: 1rem;
-      padding: 0.5rem 1rem;
+      margin-bottom: 12px;
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      background:
+        rgba(30, 41, 59, 0.62);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.11);
+
+      transition: 0.25s;
+    }
+
+    details:hover {
+      border-color:
+        rgba(56, 189, 248, 0.28);
+    }
+
+    details[open] {
+      background:
+        rgba(14, 165, 233, 0.065);
+
+      border-color:
+        rgba(56, 189, 248, 0.25);
     }
 
     summary {
       cursor: pointer;
-      font-weight: bold;
-      color: #1d4ed8;
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
+
+      padding: 18px 20px;
+
+      color: #e0f2fe;
+
+      font-weight: 700;
+
+      font-size: 0.98rem;
+
+      list-style: none;
     }
 
-    details[open] {
-      background: #dbeafe;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    details p {
-      text-align: justify;
-      line-height: 1.8;
+    summary::before {
+      content: "+";
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 26px;
+      height: 26px;
+
+      margin-left: 10px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(14, 165, 233, 0.12);
+
+      color: #38bdf8;
     }
 
-    .section-row {
+    details[open] summary::before {
+      content: "−";
+    }
+
+    details p,
+    details ul {
+      padding: 0 27px 22px;
+
+      margin: 0;
+
+      color: #b7c6d8;
+
+      line-height: 2.1;
+
+      font-size: 0.91rem;
+    }
+
+    details li {
+      margin-bottom: 8px;
+    }
+
+
+    /* =========================
+       TWO COLUMNS
+    ========================== */
+
+    .two-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 22px;
     }
 
-    .section h2 {
-      margin-top: 2rem;
-    }
 
-    .grid {
+    /* =========================
+       CARDS
+    ========================== */
+
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 15px;
     }
 
     .card {
+      position: relative;
+
+      min-height: 170px;
+
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
+
+      padding: 25px;
+
       text-align: center;
-      background: #eff6ff;
-      border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
       text-decoration: none;
-      color: #1d4ed8;
-      font-weight: 600;
-      transition: transform 0.2s ease, background 0.2s ease;
-      min-height: 100px;
+
+      color: #e0f2fe;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(30, 41, 59, 0.95),
+          rgba(15, 23, 42, 0.95)
+        );
+
+      border:
+        1px solid rgba(148, 163, 184, 0.13);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 140px;
+
+      height: 140px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(14, 165, 233, 0.06);
+
+      top: -70px;
+
+      left: -70px;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      background: #dbeafe;
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(56, 189, 248, 0.45);
+
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
     .card img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 0.5rem;
+      width: 58px;
+      height: 58px;
+
+      object-fit: contain;
+
+      margin-bottom: 13px;
+
+      z-index: 1;
     }
 
-    .download-icon {
-      font-size: 50px;
+    .card-icon {
+      font-size: 48px;
+
       line-height: 1;
-      margin-bottom: 0.5rem;
+
+      margin-bottom: 13px;
+
+      z-index: 1;
     }
 
-    .channel-link {
+    .card-title {
+      font-weight: 700;
+
+      font-size: 1rem;
+
+      z-index: 1;
+    }
+
+    .card-description {
+      color: #94a3b8;
+
+      font-size: 0.77rem;
+
+      margin-top: 8px;
+
+      z-index: 1;
+    }
+
+
+    /* =========================
+       CHANNEL
+    ========================== */
+
+    .channel-wrapper {
       display: flex;
+
       justify-content: center;
+
+      margin: 26px 0;
+    }
+
+    .channel {
+      display: flex;
+
       align-items: center;
-      gap: 0.5rem;
-      margin: 1rem auto;
-      padding: 0.7rem 1.5rem;
-      background: #1d4ed8;
+
+      gap: 12px;
+
+      padding: 14px 26px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0284c7,
+          #0369a1
+        );
+
       color: white;
-      border-radius: 0.75rem;
+
       text-decoration: none;
-      font-weight: 600;
-      width: fit-content;
-      transition: background 0.2s ease;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 12px 30px
+        rgba(2, 132, 199, 0.25);
+
+      transition: 0.25s;
     }
 
-    .channel-link:hover {
-      background: #1e40af;
+    .channel:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 17px 35px
+        rgba(2, 132, 199, 0.35);
     }
 
-    .channel-link img {
-      width: 24px;
-      height: 24px;
+    .channel img {
+      width: 26px;
+      height: 26px;
+
+      object-fit: contain;
     }
 
-    @media (max-width: 600px) {
-      .section-row {
+
+    /* =========================
+       PRACTICAL CHALLENGE
+    ========================== */
+
+    .challenge {
+      position: relative;
+
+      padding: 26px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(14, 165, 233, 0.11),
+          rgba(16, 185, 129, 0.055)
+        );
+
+      border:
+        1px solid rgba(56, 189, 248, 0.20);
+    }
+
+    .challenge-title {
+      color: white;
+
+      font-size: 1.1rem;
+
+      font-weight: 700;
+
+      margin-bottom: 10px;
+    }
+
+    .challenge p {
+      margin: 0;
+
+      color: #b8c7d9;
+
+      line-height: 2;
+    }
+
+    .challenge-label {
+      display: inline-block;
+
+      margin-bottom: 13px;
+
+      padding: 5px 11px;
+
+      border-radius: 7px;
+
+      background:
+        rgba(34, 197, 94, 0.10);
+
+      color: #86efac;
+
+      border:
+        1px solid rgba(34, 197, 94, 0.18);
+
+      font-size: 0.75rem;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      text-align: center;
+
+      padding: 30px 10px 10px;
+
+      color: #64748b;
+
+      font-size: 0.78rem;
+
+      line-height: 2;
+    }
+
+    footer strong {
+      color: #94a3b8;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .two-columns {
         grid-template-columns: 1fr;
       }
     }
+
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 94%;
+
+        margin-top: 15px;
+      }
+
+      .hero {
+        min-height: 460px;
+      }
+
+      .hero-content {
+        padding: 28px 22px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .navigation a {
+        font-size: 0.76rem;
+
+        padding:
+          8px 10px;
+      }
+    }
+
+
+    @media (max-width: 430px) {
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
-  <div class="container">
 
-    <header>
-      <h1>کارگاه آموزشی شکار تهدید صنعتی</h1>
+<div class="container">
 
-      <!-- <p><br>بیست و دومین کنفرانس بین‌المللی انجمن رمز ایران</p> -->
 
-      <img class="header-image" src="header.jpeg" alt="OT Forensics">
-    </header>
+  <!-- =================================
+       HERO
+  ================================== -->
 
-    <details>
-      <summary>سرفصل مطالب کارگاه</summary>
-      <ul>
-        <li>معرفی مفهوم OSINT و جایگاه آن در امنیت سایبری صنعتی</li>
-        <li>بررسی چارچوب ICS MITRE ATT&CK</li>
-        <li>مطالعه موردی: نگاشت یک نمونه حمله سایبری صنعتی به چارچوب ICS MITRE ATT&CK</li>
-        <li>چالش عملی: شناسایی و تحلیل یک حمله سایبری در شبکه صنعتی از روی شواهد ترافیک شبکه</li>
-      </ul>
-    </details>
+  <section class="hero">
 
-    <details>
-      <summary>چکیده کارگاه</summary>
-      <p>
-        با گسترش تهدیدات سایبری علیه سامانه‌های کنترل صنعتی، شناسایی و تحلیل رفتار مهاجمان
-        پیش از ایجاد اختلال در فرآیند صنعتی اهمیت ویژه دارد. در این کارگاه ابتدا مفهوم
-        اطلاعات منبع باز (OSINT) و کاربرد آن در شناسایی تهدیدات سایبری صنعتی معرفی می‌شود.
-        سپس چارچوب MITRE ATT&CK for ICS به عنوان یکی از مراجع مهم برای شناخت تاکتیک و
-        تکنیک‌های مورد استفاده مهاجمان در محیط صنعتی بررسی خواهد شد. در ادامه، با استفاده
-        از یک مطالعه موردی واقعی، رفتار مهاجم به این چارچوب نگاشت خواهد شد. در بخش عملی
-        کارگاه، شرکت‌کنندگان با استفاده از شواهد ترافیک شبکه و ابزارهایی نظیر Wireshark
-        یک سناریو در شبکه صنعتی را بررسی خواهند کرد. هدف نهایی، ایجاد درک عملی از فرآیند
-        شکار تهدید صنعتی است.
-      </p>
-    </details>
+    <img
+      src="header.jpeg"
+      alt="Industrial Cybersecurity"
+      class="hero-image"
+    >
 
-    <a class="channel-link"
-       href="https://ble.ir/join/CyJAXGzrYm"
-       target="_blank"
-       rel="noopener noreferrer">
-      <img src="https://bale.ai/uploads/bale.png?w=1920&q=75" alt="بله">
-      ورود به کانال بله
-    </a>
+    <div class="hero-overlay"></div>
 
-    <!-- ابزارها و فایل‌های کارگاه -->
-    <div class="section-row">
+    <div class="hero-content">
 
-      <div class="section">
-        <h2>ابزارها</h2>
+      <div class="security-badge">
 
-        <div class="grid">
-          <a class="card"
-             href="https://www.wireshark.org/download.html"
-             target="_blank"
-             rel="noopener noreferrer">
+        <span class="status-dot"></span>
 
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg"
-              alt="Wireshark">
+        کارگاه تخصصی امنیت سایبری صنعتی
 
-            Wireshark
-          </a>
-        </div>
       </div>
 
-      <div class="section">
-        <h2>فایل‌های کارگاه</h2>
 
-        <div class="grid">
-          <a class="card"
-             href="OT Network.pcapng"
-             download="OT Network.pcapng">
+      <h1>
+        شکار تهدید در شبکه‌های صنعتی
+      </h1>
 
-            <div class="download-icon">📥</div>
 
-            دانلود فایل PCAP
-          </a>
-        </div>
+      <div class="hero-description">
+
+        رویکردی عملی برای شناسایی، تحلیل و شکار تهدیدات
+        سایبری در محیط‌های OT و سامانه‌های کنترل صنعتی
+
+      </div>
+
+
+      <div class="hero-tags">
+
+        <span class="hero-tag">
+          OT Security
+        </span>
+
+        <span class="hero-tag">
+          ICS
+        </span>
+
+        <span class="hero-tag">
+          Threat Hunting
+        </span>
+
+        <span class="hero-tag">
+          Network Forensics
+        </span>
+
+        <span class="hero-tag">
+          MITRE ATT&CK for ICS
+        </span>
+
       </div>
 
     </div>
 
+  </section>
+
+
+
+  <!-- =================================
+       NAVIGATION
+  ================================== -->
+
+  <nav class="navigation">
+
+    <a href="#topics">
+      سرفصل‌ها
+    </a>
+
+    <a href="#summary">
+      چکیده
+    </a>
+
+    <a href="#challenge">
+      بخش عملی
+    </a>
+
+    <a href="#tools">
+      ابزارها
+    </a>
+
+    <a href="#files">
+      فایل‌ها
+    </a>
+
+  </nav>
+
+
+
+  <!-- =================================
+       STATS
+  ================================== -->
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <span class="stat-value">
+        OT / ICS
+      </span>
+
+      <span class="stat-label">
+        حوزه تخصصی
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <span class="stat-value">
+        MITRE ATT&CK
+      </span>
+
+      <span class="stat-label">
+        چارچوب تحلیل
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <span class="stat-value">
+        PCAP / PCAPNG
+      </span>
+
+      <span class="stat-label">
+        شواهد شبکه
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <span class="stat-value">
+        Wireshark
+      </span>
+
+      <span class="stat-label">
+        ابزار تحلیل
+      </span>
+
+    </div>
+
   </div>
+
+
+
+  <!-- =================================
+       TOPICS
+  ================================== -->
+
+  <section
+    class="section"
+    id="topics"
+  >
+
+    <div class="section-header">
+
+      <span class="section-line"></span>
+
+      <h2 class="section-title">
+        سرفصل مطالب کارگاه
+      </h2>
+
+    </div>
+
+
+    <details open>
+
+      <summary>
+        مبانی و مفاهیم
+      </summary>
+
+      <ul>
+
+        <li>
+          معرفی مفهوم OSINT و جایگاه آن در امنیت سایبری صنعتی
+        </li>
+
+        <li>
+          آشنایی با محیط‌های IT، OT و ICS
+        </li>
+
+        <li>
+          بررسی چالش‌های امنیتی شبکه‌های صنعتی
+        </li>
+
+      </ul>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        تحلیل تهدیدات سایبری صنعتی
+      </summary>
+
+      <ul>
+
+        <li>
+          بررسی چارچوب ICS MITRE ATT&CK
+        </li>
+
+        <li>
+          شناخت تاکتیک‌ها و تکنیک‌های مورد استفاده مهاجمان
+        </li>
+
+        <li>
+          نگاشت رفتار مهاجم به تکنیک‌های ICS ATT&CK
+        </li>
+
+      </ul>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        مطالعه موردی
+      </summary>
+
+      <ul>
+
+        <li>
+          بررسی یک نمونه حمله سایبری صنعتی
+        </li>
+
+        <li>
+          استخراج شواهد و رفتارهای مهاجم
+        </li>
+
+        <li>
+          نگاشت مراحل حمله به چارچوب MITRE ATT&CK for ICS
+        </li>
+
+      </ul>
+
+    </details>
+
+  </section>
+
+
+
+  <!-- =================================
+       SUMMARY
+  ================================== -->
+
+  <section
+    class="section"
+    id="summary"
+  >
+
+    <div class="section-header">
+
+      <span class="section-line"></span>
+
+      <h2 class="section-title">
+        چکیده کارگاه
+      </h2>
+
+    </div>
+
+
+    <details open>
+
+      <summary>
+        درباره کارگاه
+      </summary>
+
+      <p>
+
+        با گسترش تهدیدات سایبری علیه سامانه‌های کنترل صنعتی،
+        شناسایی و تحلیل رفتار مهاجمان پیش از ایجاد اختلال در
+        فرآیند صنعتی اهمیت ویژه دارد.
+
+        در این کارگاه ابتدا مفهوم اطلاعات منبع باز (OSINT)
+        و کاربرد آن در شناسایی تهدیدات سایبری صنعتی معرفی می‌شود.
+
+        سپس چارچوب MITRE ATT&CK for ICS به عنوان یکی از مراجع
+        مهم برای شناخت تاکتیک‌ها و تکنیک‌های مورد استفاده
+        مهاجمان در محیط صنعتی بررسی خواهد شد.
+
+        در ادامه، با استفاده از یک مطالعه موردی واقعی،
+        رفتار مهاجم به این چارچوب نگاشت خواهد شد.
+
+      </p>
+
+    </details>
+
+  </section>
+
+
+
+  <!-- =================================
+       PRACTICAL CHALLENGE
+  ================================== -->
+
+  <section
+    class="section"
+    id="challenge"
+  >
+
+    <div class="section-header">
+
+      <span class="section-line"></span>
+
+      <h2 class="section-title">
+        چالش عملی
+      </h2>
+
+    </div>
+
+
+    <div class="challenge">
+
+      <span class="challenge-label">
+        HANDS-ON / NETWORK FORENSICS
+      </span>
+
+
+      <div class="challenge-title">
+
+        تحلیل یک سناریوی واقعی از روی شواهد شبکه
+
+      </div>
+
+
+      <p>
+
+        شرکت‌کنندگان با دریافت فایل ترافیک شبکه،
+        سناریوی حمله را با استفاده از Wireshark بررسی
+        کرده و با تحلیل شواهد موجود، رفتارهای مشکوک،
+        شاخص‌های حمله و مسیر احتمالی فعالیت مهاجم را
+        شناسایی خواهند کرد.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =================================
+       TOOLS / FILES
+  ================================== -->
+
+  <div class="two-columns">
+
+
+    <!-- TOOLS -->
+
+    <section
+      class="section"
+      id="tools"
+    >
+
+      <div class="section-header">
+
+        <span class="section-line"></span>
+
+        <h2 class="section-title">
+          ابزارهای کارگاه
+        </h2>
+
+      </div>
+
+
+      <div class="cards">
+
+        <a
+          class="card"
+          href="https://www.wireshark.org/download.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg"
+            alt="Wireshark"
+          >
+
+          <span class="card-title">
+            Wireshark
+          </span>
+
+          <span class="card-description">
+            تحلیل و بررسی ترافیک شبکه
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- FILES -->
+
+    <section
+      class="section"
+      id="files"
+    >
+
+      <div class="section-header">
+
+        <span class="section-line"></span>
+
+        <h2 class="section-title">
+          فایل‌های کارگاه
+        </h2>
+
+      </div>
+
+
+      <div class="cards">
+
+        <a
+          class="card"
+          href="OT Network.pcapng"
+          download="OT Network.pcapng"
+        >
+
+          <div class="card-icon">
+            📥
+          </div>
+
+          <span class="card-title">
+            دانلود فایل PCAPNG
+          </span>
+
+          <span class="card-description">
+            فایل ترافیک شبکه برای تحلیل عملی
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- =================================
+       BALE CHANNEL
+  ================================== -->
+
+  <div class="channel-wrapper">
+
+    <a
+      class="channel"
+      href="https://ble.ir/join/CyJAXGzrYm"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <img
+        src="https://bale.ai/uploads/bale.png?w=1920&q=75"
+        alt="بله"
+      >
+
+      ورود به کانال بله
+
+    </a>
+
+  </div>
+
+
+
+  <!-- =================================
+       FOOTER
+  ================================== -->
+
+  <footer>
+
+    <strong>
+      کارگاه آموزشی شکار تهدید در شبکه‌های صنعتی
+    </strong>
+
+    <br>
+
+    Industrial Cyber Threat Hunting Workshop
+
+  </footer>
+
+
+</div>
+
 </body>
 </html>
+```
